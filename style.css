@@ -32,7 +32,9 @@ body{
 
     opacity:0;
 
-    animation:slideIn .8s ease forwards;
+    will-change:transform,opacity;
+
+    animation:showHide 22.6s cubic-bezier(.22,.61,.36,1) infinite;
 
 }
 
@@ -77,7 +79,7 @@ body{
 }
 
 /* ============================= */
-/* Efek cahaya */
+/* Efek Cahaya */
 /* ============================= */
 
 .content::after{
@@ -163,26 +165,51 @@ body{
 }
 
 /* ============================= */
-/* Animasi */
+/* Animasi Lower Third */
 /* ============================= */
 
-@keyframes slideIn{
+@keyframes showHide{
 
-    from{
-
+    /* Delay awal 3 detik */
+    0%{
         opacity:0;
-        transform:translateX(-100px);
-
+        transform:translateX(-80px);
     }
 
-    to{
+    13.27%{
+        opacity:0;
+        transform:translateX(-80px);
+    }
 
+    /* Fade In 0.8 detik */
+    16.81%{
         opacity:1;
         transform:translateX(0);
+    }
 
+    /* Tampil 15 detik */
+    83.19%{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+    /* Fade Out 0.8 detik */
+    86.73%{
+        opacity:0;
+        transform:translateX(-80px);
+    }
+
+    /* Delay akhir 3 detik */
+    100%{
+        opacity:0;
+        transform:translateX(-80px);
     }
 
 }
+
+/* ============================= */
+/* Efek Cahaya */
+/* ============================= */
 
 @keyframes shine{
 
