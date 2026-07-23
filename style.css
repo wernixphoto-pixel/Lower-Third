@@ -27,6 +27,9 @@ body{
     display:flex;
     align-items:center;
 
+    z-index:9999;
+    pointer-events:none;
+
     opacity:0;
 
     animation:slideIn .8s ease forwards;
@@ -65,15 +68,15 @@ body{
 
     position:relative;
 
-    overflow:hidden;
+    overflow:visible;
 
     padding-right:40px;
 
+    min-width:500px;
+
 }
 
-/* ============================= */
-/* Shine */
-/* ============================= */
+/* Efek cahaya */
 
 .content::after{
 
@@ -98,6 +101,10 @@ body{
 
     animation:shine 5s linear infinite;
 
+    pointer-events:none;
+
+    z-index:1;
+
 }
 
 /* ============================= */
@@ -105,6 +112,10 @@ body{
 /* ============================= */
 
 .name{
+
+    position:relative;
+
+    z-index:2;
 
     font-size:46px;
 
@@ -116,8 +127,11 @@ body{
 
     color:#ffffff;
 
+    line-height:1.1;
+
     text-shadow:
-        0 0 10px rgba(255,255,255,.35);
+        0 0 4px rgba(0,0,0,.8),
+        0 0 12px rgba(255,255,255,.35);
 
 }
 
@@ -127,13 +141,22 @@ body{
 
 .position{
 
+    position:relative;
+
+    z-index:2;
+
     margin-top:8px;
 
     font-size:22px;
 
     letter-spacing:5px;
 
-    color:rgba(255,255,255,.85);
+    color:rgba(255,255,255,.9);
+
+    line-height:1.2;
+
+    text-shadow:
+        0 0 4px rgba(0,0,0,.8);
 
 }
 
@@ -146,7 +169,6 @@ body{
     from{
 
         opacity:0;
-
         transform:translateX(-100px);
 
     }
@@ -154,7 +176,6 @@ body{
     to{
 
         opacity:1;
-
         transform:translateX(0);
 
     }
@@ -203,6 +224,12 @@ body{
 
     }
 
+    .content{
+
+        min-width:400px;
+
+    }
+
 }
 
 @media(max-width:768px){
@@ -210,7 +237,6 @@ body{
     .lower-third{
 
         left:30px;
-
         bottom:40px;
 
     }
@@ -232,8 +258,13 @@ body{
     .bar{
 
         width:6px;
-
         height:60px;
+
+    }
+
+    .content{
+
+        min-width:280px;
 
     }
 
