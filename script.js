@@ -1,0 +1,1 @@
+async function updateData(){try{const r=await fetch("data.json?t="+Date.now());const d=await r.json();nama.textContent=d.nama;jabatan.textContent=d.jabatan;}catch(e){}}updateData();setInterval(updateData,1000);
