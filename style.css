@@ -1,83 +1,3 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html,
-body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    background:transparent;
-    font-family:"Segoe UI", Arial, sans-serif;
-}
-
-/* ============================= */
-/* LOWER THIRD */
-/* ============================= */
-
-.lower-third{
-
-    position:absolute;
-
-    left:60px;
-    bottom:70px;
-
-    display:flex;
-    align-items:center;
-
-    z-index:9999;
-    pointer-events:none;
-
-    opacity:0;
-
-    will-change:transform,opacity;
-
-    animation:showHide 22.6s cubic-bezier(.22,.61,.36,1) infinite;
-
-}
-
-/* ============================= */
-/* Garis kiri */
-/* ============================= */
-
-.bar{
-
-    width:8px;
-    height:95px;
-
-    border-radius:20px;
-
-    background:linear-gradient(
-        to bottom,
-        #ffffff,
-        #cfcfcf
-    );
-
-    box-shadow:
-        0 0 15px rgba(255,255,255,.6);
-
-    margin-right:22px;
-
-}
-
-/* ============================= */
-/* Area Text */
-/* ============================= */
-
-.content{
-
-    position:relative;
-
-    overflow:visible;
-
-    padding-right:40px;
-
-    min-width:500px;
-
-}
-
 /* ============================= */
 /* Efek Cahaya */
 /* ============================= */
@@ -89,212 +9,60 @@ body{
     position:absolute;
 
     top:0;
-    left:-120%;
+    left:-20%;
 
-    width:10%;
+    width:8%;
     height:100%;
 
     background:linear-gradient(
         90deg,
         transparent,
-        rgba(255,255,255,.75),
+        rgba(255,255,255,.85),
         transparent
     );
 
     transform:skewX(-25deg);
 
-    animation:shine 5s linear infinite;
+    opacity:0;
 
     pointer-events:none;
 
-    z-index:1;
+    z-index:3;
+
+    animation:shine 22.6s linear infinite;
 
 }
 
 /* ============================= */
-/* Nama */
-/* ============================= */
-
-.name{
-
-    position:relative;
-
-    z-index:2;
-
-    font-size:46px;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    color:#ffffff;
-
-    line-height:1.1;
-
-    text-shadow:
-        0 0 4px rgba(0,0,0,.8),
-        0 0 12px rgba(255,255,255,.35);
-
-}
-
-/* ============================= */
-/* Jabatan */
-/* ============================= */
-
-.position{
-
-    position:relative;
-
-    z-index:2;
-
-    margin-top:8px;
-
-    font-size:22px;
-
-    letter-spacing:5px;
-
-    color:rgba(255,255,255,.9);
-
-    line-height:1.2;
-
-    text-shadow:
-        0 0 4px rgba(0,0,0,.8);
-
-}
-
-/* ============================= */
-/* Animasi Lower Third */
-/* ============================= */
-
-@keyframes showHide{
-
-    /* Delay awal 3 detik */
-    0%{
-        opacity:0;
-        transform:translateX(-80px);
-    }
-
-    13.27%{
-        opacity:0;
-        transform:translateX(-80px);
-    }
-
-    /* Fade In 0.8 detik */
-    16.81%{
-        opacity:1;
-        transform:translateX(0);
-    }
-
-    /* Tampil 15 detik */
-    83.19%{
-        opacity:1;
-        transform:translateX(0);
-    }
-
-    /* Fade Out 0.8 detik */
-    86.73%{
-        opacity:0;
-        transform:translateX(-80px);
-    }
-
-    /* Delay akhir 3 detik */
-    100%{
-        opacity:0;
-        transform:translateX(-80px);
-    }
-
-}
-
-/* ============================= */
-/* Efek Cahaya */
+/* Animasi Efek Cahaya */
 /* ============================= */
 
 @keyframes shine{
 
-    0%{
-
-        left:-120%;
-
+    /* Menunggu lower third muncul */
+    0%,
+    16.8%{
+        left:-20%;
+        opacity:0;
     }
 
+    /* Mulai menyala */
+    17%{
+        left:-10%;
+        opacity:1;
+    }
+
+    /* Melintas sampai sedikit melewati huruf terakhir */
+    20%{
+        left:102%;
+        opacity:1;
+    }
+
+    /* Langsung hilang */
+    20.1%,
     100%{
-
-        left:180%;
-
-    }
-
-}
-
-/* ============================= */
-/* Responsive */
-/* ============================= */
-
-@media(max-width:1280px){
-
-    .name{
-
-        font-size:36px;
-
-    }
-
-    .position{
-
-        font-size:18px;
-
-        letter-spacing:3px;
-
-    }
-
-    .bar{
-
-        height:80px;
-
-    }
-
-    .content{
-
-        min-width:400px;
-
-    }
-
-}
-
-@media(max-width:768px){
-
-    .lower-third{
-
-        left:30px;
-        bottom:40px;
-
-    }
-
-    .name{
-
-        font-size:26px;
-
-    }
-
-    .position{
-
-        font-size:15px;
-
-        letter-spacing:2px;
-
-    }
-
-    .bar{
-
-        width:6px;
-        height:60px;
-
-    }
-
-    .content{
-
-        min-width:280px;
-
+        left:102%;
+        opacity:0;
     }
 
 }
