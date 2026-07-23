@@ -76,7 +76,9 @@ body{
 
 }
 
+/* ============================= */
 /* Efek cahaya */
+/* ============================= */
 
 .content::after{
 
@@ -85,9 +87,9 @@ body{
     position:absolute;
 
     top:0;
-    left:-0%;
+    left:-10%;
 
-    width:0%;
+    width:10%;
     height:100%;
 
     background:linear-gradient(
